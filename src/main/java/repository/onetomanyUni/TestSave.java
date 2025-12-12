@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestSave {
-    static EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("one2many");
-    static EntityManager entityManager=entityManagerFactory.createEntityManager();
-    static EntityTransaction entityTransaction=entityManager.getTransaction();
+    public static EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("one2many");
+    public  static EntityManager entityManager=entityManagerFactory.createEntityManager();
+    public static EntityTransaction entityTransaction=entityManager.getTransaction();
 
     public static void main(String[] args) {
 
