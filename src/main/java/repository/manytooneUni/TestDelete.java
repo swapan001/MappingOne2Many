@@ -28,16 +28,21 @@ public class TestDelete {
 
         } );
 */
-        entityTransaction.begin();
-        for (Developer dev: developerListHavindCShProgrammingLang
-             ) {
-            dev.setPl(null);
-            entityManager.merge(dev);
-        }
-        entityManager.remove(removePL);
-        entityTransaction.commit();
+        if(!developerListHavindCShProgrammingLang.isEmpty()){
+            entityTransaction.begin();
+            for (Developer dev: developerListHavindCShProgrammingLang
+            ) {
+                dev.setPl(null);
+                entityManager.merge(dev);
+            }
+            entityManager.remove(removePL);
+            entityTransaction.commit();
 
-        System.out.println("Deleted Successfully");
+            System.out.println("Deleted Successfully");
+        }else{
+            System.out.println("No developer is associated with"+removePL.getPLName()+" programming language");
+        }
+
 
     }
 }
