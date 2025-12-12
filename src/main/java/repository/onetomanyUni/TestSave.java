@@ -15,6 +15,15 @@ public class TestSave {
     public  static EntityManager entityManager=entityManagerFactory.createEntityManager();
     public static EntityTransaction entityTransaction=entityManager.getTransaction();
 
+    public static void saveNewData(Student student,List<Book> bookList){
+        entityTransaction.begin();
+        bookList.forEach(book -> entityManager.persist(book));
+        entityManager.persist(student);
+        entityTransaction.commit();
+    }
+
+
+    /*
     public static void main(String[] args) {
 
         Student student=new Student();
@@ -47,4 +56,6 @@ public class TestSave {
 
 
     }
+    */
+
 }
