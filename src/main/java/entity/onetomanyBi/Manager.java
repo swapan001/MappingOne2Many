@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -21,4 +22,13 @@ public class Manager {
     private String mgrName;
     @OneToMany
     private List<Employee> employees;
+    public  void addEmployee(Employee... newEmployees) {
+        if (employees == null) {
+            employees = new ArrayList<>();
+        }
+
+        for (Employee emp : newEmployees) {
+            employees.add(emp);
+        }
+    }
 }
