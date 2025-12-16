@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 @Getter
 @Setter
@@ -18,5 +19,6 @@ public class Employee {
     private int empId;
     private String empName;
     @ManyToOne
+    @JoinColumn
     private Manager manager;
 }
