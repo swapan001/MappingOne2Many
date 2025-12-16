@@ -1,4 +1,4 @@
-package repository.manytooneBi;
+package repository.onetomanyBi;
 
 import entity.onetomanyBi.Employee;
 import entity.onetomanyBi.Manager;

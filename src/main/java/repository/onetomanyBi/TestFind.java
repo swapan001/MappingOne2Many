@@ -1,11 +1,10 @@
-package repository.manytooneBi;
+package repository.onetomanyBi;
 
 import entity.onetomanyBi.Employee;
 import entity.onetomanyBi.Manager;
 
 import javax.persistence.Query;
 import java.util.List;
-import java.util.Queue;
 
 import static repository.onetomanyUni.TestSave.entityManager;
 

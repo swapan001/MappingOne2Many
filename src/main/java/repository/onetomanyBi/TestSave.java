@@ -1,10 +1,7 @@
-package repository.manytooneBi;
+package repository.onetomanyBi;
 
 import entity.onetomanyBi.Employee;
 import entity.onetomanyBi.Manager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static repository.onetomanyUni.TestSave.entityManager;
 import static repository.onetomanyUni.TestSave.entityTransaction;
