@@ -15,9 +15,9 @@ public class TestSave {
     public  static EntityManager entityManager=entityManagerFactory.createEntityManager();
     public static EntityTransaction entityTransaction=entityManager.getTransaction();
 
-    public static void saveNewData(Student student,List<Book> bookList){
+    public static void saveNewData(Student student){
         entityTransaction.begin();
-        bookList.forEach(book -> entityManager.persist(book));
+        student.getBookList().forEach(book -> entityManager.persist(book));
         entityManager.persist(student);
         entityTransaction.commit();
     }

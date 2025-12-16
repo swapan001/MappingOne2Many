@@ -3,12 +3,11 @@ package service.onetomanyUni;
 import entity.onetomanyUni.Book;
 import entity.onetomanyUni.Student;
 import lombok.SneakyThrows;
-import repository.manytooneBi.TestFind;
 import repository.onetomanyUni.TestDelete;
+import repository.onetomanyUni.TestFind;
 import repository.onetomanyUni.TestSave;
 import repository.onetomanyUni.TestUpdate;
 
-import javax.persistence.PersistenceException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -32,6 +31,8 @@ public class OneToManyUni {
                             "5 to update StudentBook\n" +
                             "6 to delete Book from Student\n" +
                             "7 to delete Book data by BookName\n" +
+                            "8 to display all Book data\n" +
+                            "9 to display all Student data\n" +
                             "0 to Exit\n" +
                             "Enter option: "
             );
@@ -54,6 +55,12 @@ public class OneToManyUni {
                         break;
                     case 7:deleteBookDataByBookName();
                         break;
+                    case 8:displayAllBookData();
+                        break;
+                    case 9:displayAllStudentData();
+                        break;
+
+
                     case 0:
                         System.out.println("Okk we'll meet soon.....Bye ): ");
                         bool=false;
@@ -77,7 +84,7 @@ public class OneToManyUni {
         Student student=new Student();
         System.out.print("Enter newStudent id:");
         student.setRollNo(Integer.parseInt(br.readLine()));
-        System.out.println("\nEnter Student name: ");
+        System.out.print("\nEnter Student name: ");
         student.setSName(br.readLine());
         List<Book> bookList=new ArrayList<>();
 
@@ -92,7 +99,8 @@ public class OneToManyUni {
             bookList.add(book);
         }
         student.setBookList(bookList);
-        TestSave.saveNewData(student,bookList);
+
+        TestSave.saveNewData(student);
         System.out.println("Successfully Saved.");
     }
 
@@ -151,6 +159,14 @@ public class OneToManyUni {
         System.out.print("\nEnter bookName: ");
         String bookName= br.readLine();
         TestDelete.deleteBooKFromStudent(sId,bookName);
+    }
+
+    private static void displayAllStudentData(){
+       TestFind.displayAllStudentData().forEach(System.out::println);
+    }
+
+    public static void displayAllBookData(){
+       TestFind.displayAllBookData().forEach(System.out::println);
     }
 
     public static void oneToManyUniCRUD(){

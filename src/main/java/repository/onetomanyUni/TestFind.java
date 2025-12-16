@@ -3,6 +3,7 @@ package repository.onetomanyUni;
 import entity.onetomanyUni.Book;
 import entity.onetomanyUni.Student;
 
+import javax.persistence.Query;
 import java.util.List;
 
 import static repository.onetomanyUni.TestSave.entityManager;
@@ -35,6 +36,16 @@ public class TestFind {
             System.out.println("StudentID is Not Registered");
         }
         return null;
+    }
+
+    public static List<Book> displayAllBookData(){
+        Query query=entityManager.createQuery("select b from Book b order by b.bookId");
+        return query.getResultList();
+    }
+
+    public static List<Student> displayAllStudentData(){
+        Query query=entityManager.createQuery("select s from Student s order by s.rollNo");
+        return query.getResultList();
     }
 
 }
