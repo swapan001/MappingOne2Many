@@ -2,9 +2,7 @@ package entity.onetomanyUni;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +12,8 @@ public class Student {
     @Id
     private int rollNo;
     private String sName;
-    @OneToMany
+    // @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST) 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)      //using EAGER for access the object after changes
     private List<Book> bookList;
 
 

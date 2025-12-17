@@ -17,7 +17,17 @@ public class TestSave {
 
     public static void saveNewData(Student student){
         entityTransaction.begin();
-        student.getBookList().forEach(book -> entityManager.persist(book));
+
+        /*
+        * since we are using CascadeType.PERSIST
+        * explicitly not necessary to persist the non-owning entities
+        *
+        * So I just commented this persist Book object , it's not necessary now.
+        *
+        *
+        * */
+
+//        student.getBookList().forEach(book -> entityManager.persist(book));
         entityManager.persist(student);
         entityTransaction.commit();
     }
